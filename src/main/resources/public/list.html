@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title th:text="'Indian.com |'+${title}">Default Title</title>
+    <meta content name="description" />
+    <meta content name="keywords" />
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <!--head-->
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="bg-body-tertiary">
+    <!-- ======= Header ======= -->
+    <!-- ======= Header ======= -->
+    <div class="container" style="width: fit-content;">
+        <h1 class="display-3 fw-bold mb-1 text-dark text-center">
+            <span class="writing-effect text-info">INDIAN.COM</span>
+        </h1>
+    </div>
+    <div class="nav-scroller bg-body shadow-sm">
+        <nav class="nav align-items-center" aria-label="Secondary navigation">
+            <a class="btn-outline-info nav-link" aria-current="page" href="#">Dashboard</a>
+            <a class="btn-outline-info nav-link">
+                Friends
+                <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
+            </a>
+            <a class="btn-outline-info nav-link" href="#">Explore</a>
+            <a class="btn-outline-info nav-link" href="#">Suggestions</a>
+            <a class="btn-outline-info nav-link" href="#">Link</a>
+            <a class="btn-outline-info nav-link" href="#">Link</a>
+            <a class="btn-outline-info nav-link" href="#">Link</a>
+            <a class="btn-outline-info nav-link" href="#">Link</a>
+            <a class="btn-outline-info nav-link" href="#">Link</a>
+            <!-- New links added here -->
+            <a class="btn-outline-info nav-link" href="#jobs"><i class="bi bi-card-checklist"></i> Jobs</a>
+            <a class="btn-outline-info nav-link" href="#exams"><i class="bi bi-person-vcard"></i> Exams</a>
+            <a class="btn-outline-info nav-link" href="#results">Results</a>
+            <a class="btn-outline-info nav-link" href="#service">Service</a>
+            <a class="btn-outline-info nav-link" href="#support">Support</a>
+            <a class="btn-outline-info nav-link" href="#blog">Blog</a>
+            <a class="btn-outline-info nav-link" href="#tools">Tools</a>
+            <a class="btn-outline-info nav-link" href="#base">Base</a>
+            <a class="btn-outline-info nav-link" href="#custom">Custom</a>
+            <a class="btn-outline-info nav-link" href="#more">More</a>
+            <a class="btn-outline-info nav-link" href="#logo">Logo</a>
+            <a class="btn-outline-info nav-link" href="#partners">Partners</a>
+            <a class="btn-outline-info nav-link" href="#people">People</a>
+            <a class="btn-outline-info nav-link" href="#work">Work</a>
+        </nav>
+    </div>
+    <!-- End Header -->
+    <!-- hero section starts here -->
+    <div class="container my-1 rounded-3" style="background-color: coral;">
+        <div class="p-5 text-center justify-content-center">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-dark " href="/">Home</a></li>
+                    <li class="breadcrumb-item">
+                        <a class="text-dark" th:href="@{/results}" th:text="${title}" onclick="return false;">List</a>
+                    </li>
+                </ol>
+            </nav>
+            <h1 class="text-white"><i class="bi bi-bookmarks"></i></h1>
+            <h1 class="text-white" th:text="${title}">Default Value</h1>
+        </div>
+    </div>
+    <!-- hero section ends here -->
+    <!-- Breaking news section -->
+    <main class="main">
+        <!-- Breaking news section -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-12 py-2 bg-dark">
+                    <div class="row">
+                        <!-- Breaking box -->
+                        <div class="col-md-3 col-lg-2 pr-md-0">
+                            <div class="p-2 bg-warning text-white text-center breaking-caret">
+                                <span class="fw-bold">Breaking News</span>
+                            </div>
+                        </div>
+                        <!-- End breaking box -->
+                        <!-- Breaking content -->
+                        <div class="col-md-9 col-lg-10 ps-md-4 py-2">
+                            <div class="breaking-box">
+                                <div id="carouselBreaking" class="carousel slide" data-bs-ride="carousel">
+                                    <!-- Breaking news -->
+                                    <div class="carousel-inner">
+                                        <!-- Post -->
+                                        <div class="carousel-item">
+                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                <span
+                                                    class="position-relative mx-2 badge bg-primary rounded-0">Technology</span>
+                                            </a>
+                                            <a class="text-white"
+                                                href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Google
+                                                Employees Protest Secret Work on Censored Search
+                                                Engine
+                                                for China</a>
+                                        </div>
+                                        <!-- Post -->
+                                        <div class="carousel-item">
+                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                <span
+                                                    class="position-relative mx-2 badge bg-primary rounded-0">Automotive</span>
+                                            </a>
+                                            <a class="text-white"
+                                                href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Investors
+                                                Betting Against Tesla Made $1 Billion on Friday</a>
+                                        </div>
+                                        <!-- Post -->
+                                        <div class="carousel-item">
+                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                <span
+                                                    class="position-relative mx-2 badge bg-primary rounded-0">Football</span>
+                                            </a>
+                                            <a class="text-white"
+                                                href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">World
+                                                Cup 2050 Will Release in Dubai</a>
+                                        </div>
+                                        <!-- Post -->
+                                        <div class="carousel-item">
+                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                <span
+                                                    class="position-relative mx-2 badge bg-primary rounded-0">Beauty</span>
+                                            </a>
+                                            <a class="text-white"
+                                                href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Lemon
+                                                Makes Your Skin Fresh and Glowing</a>
+                                        </div>
+                                        <!-- Post -->
+                                        <div class="carousel-item active">
+                                            <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                <span
+                                                    class="position-relative mx-2 badge bg-primary rounded-0">Sport</span>
+                                            </a>
+                                            <a class="text-white"
+                                                href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">5
+                                                Takeaways From Elon Musk’s Interview With The Times
+                                                About Tesla</a>
+                                        </div>
+                                    </div>
+                                    <!-- End breaking news -->
+                                    <!-- Navigation slider -->
+                                    <div class="navigation-box p-2 d-none d-sm-block">
+                                        <!-- Nav left -->
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselBreaking" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <!-- Nav right -->
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselBreaking" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                    <!-- End navigation slider -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End breaking content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-2 g-xxl-5">
+                <div class="col-lg-8" id="jobs">
+                    <div class="card h-100">
+                        <div class="card-header bg-success">
+                            <div class="text-white fw-500 text-center">
+                                <b th:text="'Recent '+${title}">Default Value</b>
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush small mb-0 border-bottom">
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Start Bootstrap Forms
+                                <div class="text-xs text-muted">July 9, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Is Bootstrap Relevant in 2021?
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Angular Bootstrap Themes and Templates
+                                <div class="text-xs text-muted">April 9, 2020</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Is Bootstrap Relevant in 2021?
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Angular Bootstrap Themes and Templates
+                                <div class="text-xs text-muted">April 9, 2020</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Is Bootstrap Relevant in 2021?
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Angular Bootstrap Themes and Templates
+                                <div class="text-xs text-muted">April 9, 2020</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Start Bootstrap Forms
+                                <div class="text-xs text-muted">July 9, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Is Bootstrap Relevant in 2021?
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Angular Bootstrap Themes and Templates
+                                <div class="text-xs text-muted">April 9, 2020</div>
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-center text-center m-2">
+                            <div class="btn-toolbar justify-content-between" role="toolbar"
+                                aria-label="Toolbar with button groups">
+                                <div class="btn-group" role="group" aria-label="First group">
+                                    <button type="button" class="btn btn-outline-secondary">Prev</button>
+                                    <button type="button" class="btn btn-outline-secondary">1</button>
+                                    <button type="button" class="btn btn-outline-secondary">2</button>
+                                    <button type="button" class="btn btn-outline-secondary">3</button>
+                                    <button type="button" class="btn btn-outline-secondary">4</button>
+                                    <button type="button" class="btn btn-outline-secondary">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" id="exams">
+                    <div class="card h-50 mb-2">
+                        <div class="card-header bg-success">
+                            <div class="text-white fw-500 text-center">
+                                <i class="bi bi-newspaper"></i> <b>News</b>
+                            </div>
+                        </div>
+                        <div id="news-list">
+                            <div class="list-group list-group-flush small mb-0 border-bottom">
+                                <a class="list-group-item list-group-item-action text-danger" href="#">
+                                    Free Bootstrap Themes - 2021 Update
+                                    <div class="text-xs text-muted">June 27, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Bootstrap 5 Templates and Themes Update for Start
+                                    Bootstrap
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Is Bootstrap Relevant in 2021?
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Angular Bootstrap Themes and Templates
+                                    <div class="text-xs text-muted">April 9, 2020</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Bootstrap 5 Templates and Themes Update for Start
+                                    Bootstrap
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Is Bootstrap Relevant in 2021?
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Angular Bootstrap Themes and Templates
+                                    <div class="text-xs text-muted">April 9, 2020</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action text-danger" href="#">
+                                    Free Bootstrap Themes - 2021 Update
+                                    <div class="text-xs text-muted">June 27, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Bootstrap 5 Templates and Themes Update for Start
+                                    Bootstrap
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Is Bootstrap Relevant in 2021?
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Angular Bootstrap Themes and Templates
+                                    <div class="text-xs text-muted">April 9, 2020</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Bootstrap 5 Templates and Themes Update for Start
+                                    Bootstrap
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Is Bootstrap Relevant in 2021?
+                                    <div class="text-xs text-muted">May 21, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Angular Bootstrap Themes and Templates
+                                    <div class="text-xs text-muted">April 9, 2020</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center p-2">
+                            <button id="up" type="button"><i class="bi bi-arrow-up-circle"></i></button>
+                            <button id="down" type="button"><i class="bi bi-arrow-down-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="card h-45">
+                        <div class="card-header bg-success">
+                            <div class="text-white fw-500 text-center">
+                                <b th:text="${value2}">Recent List</b>
+                            </div>
+                        </div>
+                        <div class="list-group list-group-flush small mb-0 border-bottom">
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Start Bootstrap Forms
+                                <div class="text-xs text-muted">July 9, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Start Bootstrap Forms
+                                <div class="text-xs text-muted">July 9, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Start Bootstrap Forms
+                                <div class="text-xs text-muted">July 9, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Free Bootstrap Themes - 2021 Update
+                                <div class="text-xs text-muted">June 27, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Is Bootstrap Relevant in 2021?
+                                <div class="text-xs text-muted">May 21, 2021</div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="#">
+                                Introducing Angular Bootstrap Themes and Templates
+                                <div class="text-xs text-muted">April 9, 2020</div>
+                            </a>
+                        </div>
+                        <div class="text-center m-2">
+                            <a href="#">
+                                <b class="btn btn-outline-info px-5">View More</b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- End #main -->
+    <hr />
+    <!-- Footer -->
+    <footer class="bg-body-tertiary text-center">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <div class="d-flex justify-content-center">
+                    <!-- Facebook -->
+                    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                        <img class="rounded" src="assets/img/facebook-3-logo-svgrepo-com.png" height="30px"
+                            alt="Facebook" />
+                    </a>
+                    <!-- Google -->
+                    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                        <img class="rounded" src="assets/img/google-color-svgrepo-com.png" height="30px" alt="Google" />
+                    </a>
+                    <!-- Instagram -->
+                    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                        <img class="rounded" src="assets/img/instagram-2-1-logo-svgrepo-com.png" height="30px"
+                            alt="Instagram" />
+                    </a>
+                    <!-- Linkedin -->
+                    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                        <img class="rounded" src="assets/img/linkedin-icon-2-logo-svgrepo-com.png" height="30px"
+                            alt="LinkedIn" />
+                    </a>
+                    <!-- Github -->
+                    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                        <img class="rounded" src="assets/img/github-color-svgrepo-com.png" height="30px" alt="GitHub" />
+                    </a>
+                </div>
+            </section>
+            <!-- Section: Social media -->
+            <!-- Section: Form -->
+            <section>
+                <form action>
+                    <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+                        <!--Grid column-->
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                <strong>Sign up for our newsletter</strong>
+                            </p>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-md-5 col-12">
+                            <!-- Email input -->
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input type="email" id="form5Example24" class="form-control" placeholder="Enter Email"
+                                    required />
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <div class="col-auto">
+                            <!-- Submit button -->
+                            <button data-mdb-ripple-init type="submit" class="btn btn-primary mb-4">
+                                Subscribe
+                            </button>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </form>
+            </section>
+            <!-- Section: Form -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05)">
+            © 2020 Copyright:
+            <a class="text-reset fw-bold" href="#">myweb.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-circle"></i></i></a>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/jquery.easy-ticker.js"></script>
+    <script>
+        $(document).ready(function () {
+            var lastScrollTop = 0;
+            var header = $("#header");
+
+            $(window).scroll(function () {
+                var currentScroll = $(this).scrollTop();
+
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    header.removeClass("d-block").addClass("d-none");
+                } else {
+                    // Scrolling up
+                    header.removeClass("d-none").addClass("d-block");
+                }
+
+                lastScrollTop = currentScroll;
+            });
+        });
+        // function to auto scroll news
+        $(document).ready(function () {
+            $("#news-list").easyTicker({
+                direction: "up",
+                easing: "swing",
+                speed: "slow",
+                interval: 1000,
+                height: "500px",
+                visible: 0,
+                mousePause: true,
+                controls: {
+                    up: "#up",
+                    down: "#down",
+                    toggle: "#toggle",
+                    playText: "",
+                    stopText: "",
+                },
+                callbacks: {
+                    before: false,
+                    after: false,
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

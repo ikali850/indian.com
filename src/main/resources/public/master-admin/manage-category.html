@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Manage Category - Admin Edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <!-- iziToast CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- iziToast JS -->
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="/master-admin/css/admin.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="/admin/dashboard">
+            <img src="/master-admin/img/logo.png" alt="logo" height="50px">
+        </a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <!-- Blog Posts Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts"
+                            aria-expanded="false" aria-controls="collapsePosts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>
+                            Blog Posts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePosts" aria-labelledby="headingPosts"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/manage-posts">Manage Post</a>
+                                <a class="nav-link" href="#">Add New Post</a>
+                                <a class="nav-link" href="#">Edit Post</a>
+                            </nav>
+                        </div>
+                        <!-- Sarkari Blog Posts Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-gov-posts" aria-expanded="false" aria-controls="collapsePosts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>
+                            Application Post
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapse-gov-posts" aria-labelledby="headingPosts"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="manage-application-post.html">Manage Application Posts</a>
+                                <a class="nav-link" href="#">Add New Post</a>
+                                <a class="nav-link" href="#">Edit Post</a>
+                            </nav>
+                        </div>
+
+                        <!-- Categories Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseCategories" aria-expanded="false"
+                            aria-controls="collapseCategories">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
+                            Categories
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseCategories" aria-labelledby="headingCategories"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/manage-categories">Manage Categories</a>
+                                <a class="nav-link" href="#">Add New Category</a>
+                                <a class="nav-link" href="#">Edit Category</a>
+                            </nav>
+                        </div>
+
+                        <!-- Draft Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDraft"
+                            aria-expanded="false" aria-controls="collapseDraft">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
+                            Draft
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseDraft" aria-labelledby="headingDraft"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Draft Data</a>
+                            </nav>
+                        </div>
+
+                        <!-- User Management Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsers"
+                            aria-expanded="false" aria-controls="collapseUsers">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Users
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseUsers" aria-labelledby="headingUsers"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/manage-users">Manage Users</a>
+                                <a class="nav-link" href="#">Add New User</a>
+                                <a class="nav-link" href="#">Edit User</a>
+                                <a class="nav-link" href="#">Roles & Permissions</a>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Arvind kumar
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h2 class="mt-4 pb-2" style="border-bottom: 2px solid;">Manage Category</h2>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Category</li>
+                    </ol>
+                    <!-- Alert for category creation -->
+                    <div th:if="${alert}" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span th:text="${alert}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <!-- Alert for category error -->
+                    <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span th:text="${error}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <div>
+                                <i class="fas fa-table me-1"></i>
+                                Manage Category
+                                <button type="button" class="btn btn-outline-primary" style="margin-left: 70%;"
+                                    data-bs-toggle="modal" data-bs-target="#addCategoryModal"><i
+                                        class="fa-solid fa-plus"></i> New Category </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="post-data" class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th title="Field #1">ID</th>
+                                        <th title="Field #2">Name</th>
+                                        <th title="Field #3">Created At</th>
+                                        <th title="Field #4">Updated At</th>
+                                        <th title="Field #5">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="category : ${list}">
+                                        <td align="right" th:text="${category.id}"></td>
+                                        <td th:text="${category.name}"></td>
+                                        <td th:text="${category.createdAt}"></td>
+                                        <td th:text="${category.updatedAt}"></td>
+                                        <td>
+                                            <a class="btn btn-primary m-1" href="#" role="button" data-bs-toggle="modal"
+                                                data-bs-target="#updteCategoryModal" th:data-id="${category.id}">
+                                                <i class="bi bi-pencil-square"></i> Edit
+                                            </a>
+                                            <a class="btn btn-danger m-1"
+                                                th:href="@{/admin/category/delete/{id}(id=${category.id})}"
+                                                role="button">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- modal for add new category -->
+                        <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new Category </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/admin/category" method="post">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="name" class="form-control" id="floatingInput"
+                                                    placeholder="Name">
+                                                <label for="floatingInput">Category Name</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" value="Add">Add</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- modal for Update category -->
+                        <div class="modal fade" id="updteCategoryModal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Category </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/admin/category/update" method="post">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="id" class="form-control" id="idInput"
+                                                    placeholder="Id">
+                                                <label for="idInput">Id</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="name" class="form-control" id="new-category"
+                                                    placeholder="New Category Name">
+                                                <label for="new-category">New Category Name</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" value="Add">Update</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/master-admin/js/post.js"></script>
+    <script type="text/javascript" src="/master-admin/js/scripts.js"></script>
+</body>
+
+</html>

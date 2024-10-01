@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Create Blog Post</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Create Blog Post</h2>
+        <form action="/create-blog-post" method="POST">
+            <div class="form-group">
+                <label for="title">Title <i class="fas fa-heading"></i></label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fullTitle">Full Title <i class="fas fa-book"></i></label>
+                <input type="text" class="form-control" id="fullTitle" name="fullTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content <i class="fas fa-edit"></i></label>
+                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="slug">Slug <i class="fas fa-link"></i></label>
+                <input type="text" class="form-control" id="slug" name="slug" required>
+            </div>
+
+            <div class="form-group">
+                <label>Categories <i class="fas fa-tags"></i></label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category1" name="categories" value="1">
+                    <label class="form-check-label" for="category1">Category 1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category2" name="categories" value="2">
+                    <label class="form-check-label" for="category2">Category 2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category3" name="categories" value="3">
+                    <label class="form-check-label" for="category3">Category 3</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Post</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+.nav-scroller .nav-link {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: .875rem;
+    color: #6c757d;
+}
+
+body a {
+    text-decoration: none;
+}
+
+#service a:hover {
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+/*--------------------------------------------------------------
+# breaking news carasoul section
+--------------------------------------------------------------*/
+.navigation-box {
+    top: 0.4rem;
+    right: 0.8rem;
+    width: 4rem;
+    position: absolute;
+}
+
+/*card css*/
+.card-header {
+    padding: 12px;
+}
+
+/*horizontal navbar*/
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*horizontal scrollbar for mobile screen navigation*/
+.nav-scroller-mobile {
+    position: fixed;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+.nav-scroller-mobile .nav-link{
+    color: black;
+}
+
+.nav-scroller-mobile .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+.nav-link{
+  font-weight: bold;
+}
+
+/*title 3d Design css*/
+
+.threeD {
+    font-size: 40px;
+    color: #f1ebe5;
+    text-shadow: 0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0, 0, 0, .1),
+        0 0 5px rgba(0, 0, 0, .1),
+        0 1px 3px rgba(0, 0, 0, .3),
+        0 3px 5px rgba(0, 0, 0, .2),
+        0 5px 10px rgba(0, 0, 0, .25),
+        0 10px 10px rgba(0, 0, 0, .2),
+        0 20px 20px rgba(0, 0, 0, .15);
+}
+/*writing effect css*/
+ @keyframes writing {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
+    .writing-effect {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid sandybrown;
+        animation: writing 4s steps(30) forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+.container{
+  padding-right: 0;
+  padding-left: 0;
+
+}

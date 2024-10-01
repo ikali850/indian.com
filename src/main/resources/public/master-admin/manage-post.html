@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>All-posts - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <!-- iziToast CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- iziToast JS -->
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="/master-admin/css/admin.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="/admin/dashboard">
+            <img src="/master-admin/img/logo.png" alt="logo" height="50px">
+        </a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <!-- Blog Posts Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts"
+                            aria-expanded="false" aria-controls="collapsePosts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>
+                            Blog Posts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePosts" aria-labelledby="headingPosts"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/manage-posts">Manage Post</a>
+                                <a class="nav-link" href="#">Add New Post</a>
+                                <a class="nav-link" href="#">Edit Post</a>
+                            </nav>
+                        </div>
+                        <!-- Sarkari Blog Posts Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-gov-posts" aria-expanded="false" aria-controls="collapsePosts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>
+                            Application Post
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapse-gov-posts" aria-labelledby="headingPosts"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="manage-application-post.html">Manage Application Posts</a>
+                                <a class="nav-link" href="#">Add New Post</a>
+                                <a class="nav-link" href="#">Edit Post</a>
+                            </nav>
+                        </div>
+
+                        <!-- Categories Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseCategories" aria-expanded="false"
+                            aria-controls="collapseCategories">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
+                            Categories
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseCategories" aria-labelledby="headingCategories"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/manage-categories">Manage Categories</a>
+                                <a class="nav-link" href="#">Add New Category</a>
+                                <a class="nav-link" href="#">Edit Category</a>
+                            </nav>
+                        </div>
+
+                        <!-- Draft Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDraft"
+                            aria-expanded="false" aria-controls="collapseDraft">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
+                            Draft
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseDraft" aria-labelledby="headingDraft"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Draft Data</a>
+                            </nav>
+                        </div>
+
+                        <!-- User Management Section -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsers"
+                            aria-expanded="false" aria-controls="collapseUsers">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Users
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseUsers" aria-labelledby="headingUsers"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/manage-users">Manage Users</a>
+                                <a class="nav-link" href="#">Add New User</a>
+                                <a class="nav-link" href="#">Edit User</a>
+                                <a class="nav-link" href="#">Roles & Permissions</a>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Arvind kumar
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h2 class="mt-4 pb-2" style="border-bottom: 2px solid;">Manage Blog Post</h2>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active">All-Posts</li>
+                    </ol>
+                    <!-- loader  -->
+                    <div class="container" id="loader" style="visibility: hidden;">
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary" type="button" disabled>
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                Please Wait...
+                            </button>
+                        </div>
+                    </div><br>
+                    <!-- Alert for post creation error -->
+                    <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span th:text="${error}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <!-- Alert for post creation -->
+                    <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span th:text="${success}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i> All Post
+                            <button type="button" class="btn btn-outline-primary" style="margin-left: 80%;"
+                                data-bs-toggle="modal" data-bs-target="#addPostModal"><i class="fa-solid fa-plus"></i>
+                                New Post </button>
+                        </div>
+                        <div class="card-body">
+                            <table id="post-data" class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Short Title</th>
+                                        <th>Full Title</th>
+                                        <th>Category</th>
+                                        <th>User</th>
+                                        <th>Created At</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="post : ${blogList}">
+                                        <td th:text="${post.id}"></td>
+                                        <td th:text="${post.title}"></td>
+                                        <td th:text="${post.fullTitle}"></td>
+                                        <td th:text="${post.categories}"></td>
+                                        <td th:text="${post.user.name}"></td>
+                                        <td th:text="${post.createdAt}"></td>
+                                        <td>
+                                            <a class="btn btn-info m-1 editBtn" th:href="@{/post/{id}(id=${post.id})}"
+                                                role="button">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <a class="btn btn-info m-1" href="#" role="button">
+                                                <i class="fas fa-browser"></i> Publish
+                                            </a>
+                                            <a class="btn btn-danger m-1"
+                                                th:href="@{/admin/post/delete/{id}(id=${post.id})}" role="button">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Model for add new post -->
+                    <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Post</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="accordion mb-4" id="accordionExample">
+                                        <!-- Basic Info Accordion -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                    aria-expanded="false" aria-controls="collapseOne">
+                                                    <b>Basic Info</b>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <form action="/admin/blog/post" method="post">
+                                                        <div class="mb-3">
+                                                            <div class="form-floating">
+                                                                <input type="text" class="form-control" id="fullTitle"
+                                                                    name="fullTitle" placeholder="fullTitle" required>
+                                                                <label for="fullTitle">Full Title</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="form-floating">
+                                                                <input type="text" class="form-control" id="title"
+                                                                    name="title" placeholder="Title" required>
+                                                                <label for="title">Title</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="form-floating">
+                                                                <input type="text" class="form-control" id="url-slug"
+                                                                    name="slug" placeholder="URL Slug">
+                                                                <label for="url-slug">URL Slug</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label ml-2"><strong>Select a
+                                                                    Category</strong></label>
+                                                            <div th:each="category : ${categoryList}"
+                                                                class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    th:id="${category.name}" th:name="'categories'"
+                                                                    th:value="${category.name}">
+                                                                <label class="form-check-label"
+                                                                    th:for="${category.name}"
+                                                                    th:text="${category.name}"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="form-floating">
+                                                                <input type="date" class="form-control" id="date"
+                                                                    name="date" placeholder="Date">
+                                                                <label for="date">Date</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="form-floating">
+                                                                <textarea class="form-control" id="contentData"
+                                                                    name="content" placeholder="Content"
+                                                                    style="height: 400px;" required>
+                                                                    <div class="card mb-4">
+                                                                        <div class="card-header bg-success text-white p-3">
+                                                                            <strong>The Wonders of Space Exploration</strong>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <p>Space exploration has always fascinated humanity. From the first steps on the Moon to the latest Mars rover missions, our quest to understand the universe continues to evolve. The
+                                                                                discovery of exoplanets has opened new avenues in our search for extraterrestrial life. Programs like NASA's Artemis aim to return humans to the Moon, paving the way for future
+                                                                                missions to Mars. Each mission teaches us more about our solar system, and perhaps one day, we will find a new home among the stars.</p>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                    <div class="card mb-4">
+                                                                        <div class="card-header bg-success text-white p-3">
+                                                                            <strong>The Impact of Climate Change</strong>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <p>Climate change poses one of the most significant threats to our planet today. Rising global temperatures lead to severe weather events, melting ice caps, and rising sea levels. Communities
+                                                                                worldwide are already experiencing the effects, from droughts in Africa to hurricanes in the Americas. Tackling climate change requires a collective effort involving governments,
+                                                                                businesses, and individuals. Sustainable practices such as renewable energy, waste reduction, and conservation can help mitigate these effects. It’s essential for future generations
+                                                                                that we take action now.</p>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                    <div class="card mb-4">
+                                                                        <div class="card-header bg-success text-white p-3">
+                                                                            <strong>Advancements in Artificial Intelligence</strong>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <p>Artificial intelligence (AI) is transforming industries across the globe. From healthcare, where it aids in diagnostics, to finance, where it improves fraud detection, AI technologies
+                                                                                are enhancing efficiency and innovation. Machine learning algorithms analyze vast amounts of data, leading to insights that were previously unattainable. However, ethical considerations
+                                                                                surrounding AI, such as privacy concerns and job displacement, must be addressed. As we embrace this technology, fostering a dialogue about its implications is crucial for a balanced
+                                                                                future.</p>
+                                                                            <table class="table mt-3">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Industry</th>
+                                                                                        <th>Application</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Healthcare</td>
+                                                                                        <td>Diagnostics and personalized medicine</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Finance</td>
+                                                                                        <td>Fraud detection and algorithmic trading</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Manufacturing</td>
+                                                                                        <td>Predictive maintenance and automation</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                    <div class="card mb-4">
+                                                                        <div class="card-header bg-success text-white p-3">
+                                                                            <strong>The Evolution of Renewable Energy</strong>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <p>Renewable energy sources, such as solar and wind power, have gained traction as essential alternatives to fossil fuels. The transition to renewables is crucial for reducing greenhouse
+                                                                                gas emissions and combating climate change. Solar panels are now more efficient and affordable than ever, while wind farms are sprouting up in many regions. Innovations in energy
+                                                                                storage technologies, such as batteries, are helping to address intermittency issues, making renewables a reliable energy source. As technology continues to advance, the future
+                                                                                of energy looks increasingly green.</p>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                    <div class="card mb-4">
+                                                                        <div class="card-header bg-success text-white p-3">
+                                                                            <strong>The Role of Education in Society</strong>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <p>Education is a fundamental pillar of society, shaping the minds of future generations. It fosters critical thinking, creativity, and social responsibility. In today’s rapidly changing
+                                                                                world, adapting education to meet the needs of the economy and society is vital. Emphasizing skills such as digital literacy and emotional intelligence prepares students for a
+                                                                                dynamic workforce. Moreover, access to quality education promotes equality and social mobility, empowering individuals to improve their circumstances. Investing in education is
+                                                                                investing in a better future for all.</p>
+                                                                        </div>
+                                                                    </div>
+    
+                                                                </textarea>
+                                                                <label for="content">Content</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end mt-4">
+                                                            <button type="button" id="previewButton"
+                                                                class="btn btn-secondary me-2 previewButton">Preview</button>
+                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- model for update post -->
+                    <div class="modal fade" id="postUpdateModal" tabindex="-1" aria-labelledby="postUpdateModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="postUpdateModalLabel">Update Post</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/admin/blog/post" method="post">
+                                        <div class="mb-3">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="update-postId" name="id"
+                                                    placeholder="Id" required readonly value="1">
+                                                <label for="update-postId">#Id</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="update-fullTitle"
+                                                    name="fullTitle" placeholder="fullTitle" required>
+                                                <label for="update-fullTitle">Full Title</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="update-title" name="title"
+                                                    placeholder="Title" required>
+                                                <label for="update-title">Title</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="update-url-slug" name="slug"
+                                                    placeholder="URL Slug">
+                                                <label for="update-url-slug">URL Slug</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label ml-2"><strong>Select a Category</strong></label>
+                                            <div th:each="category : ${categoryList}"
+                                                class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    th:id="'update-' + ${category.name}" th:name="'categories'"
+                                                    th:value="${category.name}">
+                                                <label class="form-check-label" th:for="'update-' + ${category.name}"
+                                                    th:text="${category.name}"></label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating">
+                                                <input type="date" class="form-control" id="update-date" name="date"
+                                                    placeholder="Date">
+                                                <label for="update-date">Date</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" id="update-contentData" name="content"
+                                                    placeholder="Content" style="height: 400px;" required>
+                                                    Demo content
+                                                </textarea>
+                                                <label for="update-contentData">Content</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-4">
+                                            <button type="button" id="update-previewButton"
+                                                class="btn btn-secondary me-2 previewButton">Preview</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Preview Modal -->
+                    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Preview</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="previewContainer">
+                                    ...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a> &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/master-admin/js/post.js"></script>
+    <script type="text/javascript" src="/master-admin/js/scripts.js"></script>
+</body>
+
+</html>
