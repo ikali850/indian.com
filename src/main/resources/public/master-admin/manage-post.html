@@ -195,6 +195,7 @@
                                         <th>Category</th>
                                         <th>User</th>
                                         <th>Created At</th>
+                                        <th>Visibility</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -206,17 +207,22 @@
                                         <td th:text="${post.categories}"></td>
                                         <td th:text="${post.user.name}"></td>
                                         <td th:text="${post.createdAt}"></td>
+                                        <td><a class="btn btn-warning m-1"
+                                                th:href="@{/admin/post/visible/{id}(id=${post.id})}" role="button"
+                                                th:text="${post.status}">
+                                            </a></td>
                                         <td>
-                                            <a class="btn btn-info m-1 editBtn" th:href="@{/post/{id}(id=${post.id})}"
-                                                role="button">
+                                            <a class="btn btn-info m-1 editBtn"
+                                                th:href="@{/admin/post/{id}(id=${post.id})}" role="button">
                                                 <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            <a class="btn btn-info m-1" href="#" role="button">
-                                                <i class="fas fa-browser"></i> Publish
                                             </a>
                                             <a class="btn btn-danger m-1"
                                                 th:href="@{/admin/post/delete/{id}(id=${post.id})}" role="button">
                                                 <i class="fas fa-trash"></i>
+                                            </a>
+                                            <a class="btn btn-info m-1" th:href="@{/{slug}(slug=${post.slug})}"
+                                                role="button">
+                                                <i class="far fa-eye"></i>
                                             </a>
                                         </td>
                                     </tr>

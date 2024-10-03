@@ -39,13 +39,13 @@ public class BlogPost {
     @Column(nullable = false, unique = true)
     private String slug;
 
-    @Column(nullable = false, unique = false)
-    private List<String> categories;
+    @Column(nullable = false, unique = false, columnDefinition = "TEXT")
+    private String categories;
 
     @ManyToOne
     private User user;
 
-    private String status = "show";
+    private String status = "visible";
     private long likes, views, shares;
 
     @Column(name = "created_at", updatable = false)

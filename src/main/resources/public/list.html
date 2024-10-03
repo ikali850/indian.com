@@ -176,7 +176,7 @@
         </div>
         <div class="container">
             <div class="row g-2 g-xxl-5">
-                <div class="col-lg-8" id="jobs">
+                <div class="col-lg-8">
                     <div class="card h-100">
                         <div class="card-header bg-success">
                             <div class="text-white fw-500 text-center">
@@ -184,83 +184,14 @@
                             </div>
                         </div>
                         <div class="list-group list-group-flush small mb-0 border-bottom">
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Start Bootstrap Forms
-                                <div class="text-xs text-muted">July 9, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Is Bootstrap Relevant in 2021?
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Angular Bootstrap Themes and Templates
-                                <div class="text-xs text-muted">April 9, 2020</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Is Bootstrap Relevant in 2021?
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Angular Bootstrap Themes and Templates
-                                <div class="text-xs text-muted">April 9, 2020</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Is Bootstrap Relevant in 2021?
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Angular Bootstrap Themes and Templates
-                                <div class="text-xs text-muted">April 9, 2020</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Start Bootstrap Forms
-                                <div class="text-xs text-muted">July 9, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Is Bootstrap Relevant in 2021?
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Angular Bootstrap Themes and Templates
-                                <div class="text-xs text-muted">April 9, 2020</div>
-                            </a>
+                            <div th:each="item : ${listData}">
+                                <a class="list-group-item list-group-item-action" th:href="${item.slug}">
+                                    <span th:text="${item.title}"></span>
+                                    <div class="text-xs text-muted" th:text="${item.updatedAt}"></div>
+                                </a>
+                            </div>
                         </div>
+
                         <div class="d-flex justify-content-center text-center m-2">
                             <div class="btn-toolbar justify-content-between" role="toolbar"
                                 aria-label="Toolbar with button groups">
@@ -276,65 +207,112 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4" id="exams">
-                    <div class="card h-50 mb-2">
-                        <div class="card-header bg-success">
-                            <div class="text-white fw-500 text-center">
-                                <i class="bi bi-newspaper"></i> <b>News</b>
+                <div class="col-lg-4">
+                    <div class="sticky-top">
+                        <div class="card h-50 mb-2">
+                            <div class="card-header bg-success">
+                                <div class="text-white fw-500 text-center">
+                                    <i class="bi bi-newspaper"></i> <b>News</b>
+                                </div>
+                            </div>
+                            <div id="news-list">
+                                <div class="list-group list-group-flush small mb-0 border-bottom">
+                                    <a class="list-group-item list-group-item-action text-danger" href="#">
+                                        Free Bootstrap Themes - 2021 Update
+                                        <div class="text-xs text-muted">June 27, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Bootstrap 5 Templates and Themes Update for Start
+                                        Bootstrap
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Is Bootstrap Relevant in 2021?
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Introducing Angular Bootstrap Themes and Templates
+                                        <div class="text-xs text-muted">April 9, 2020</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Bootstrap 5 Templates and Themes Update for Start
+                                        Bootstrap
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Is Bootstrap Relevant in 2021?
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Introducing Angular Bootstrap Themes and Templates
+                                        <div class="text-xs text-muted">April 9, 2020</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action text-danger" href="#">
+                                        Free Bootstrap Themes - 2021 Update
+                                        <div class="text-xs text-muted">June 27, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Bootstrap 5 Templates and Themes Update for Start
+                                        Bootstrap
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Is Bootstrap Relevant in 2021?
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Introducing Angular Bootstrap Themes and Templates
+                                        <div class="text-xs text-muted">April 9, 2020</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Bootstrap 5 Templates and Themes Update for Start
+                                        Bootstrap
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Is Bootstrap Relevant in 2021?
+                                        <div class="text-xs text-muted">May 21, 2021</div>
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" href="#">
+                                        Introducing Angular Bootstrap Themes and Templates
+                                        <div class="text-xs text-muted">April 9, 2020</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center p-2">
+                                <button id="up" type="button"><i class="bi bi-arrow-up-circle"></i></button>
+                                <button id="down" type="button"><i class="bi bi-arrow-down-circle"></i></button>
                             </div>
                         </div>
-                        <div id="news-list">
+                        <div class="card h-45">
+                            <div class="card-header bg-success">
+                                <div class="text-white fw-500 text-center">
+                                    <b th:text="${value2}">Recent List</b>
+                                </div>
+                            </div>
                             <div class="list-group list-group-flush small mb-0 border-bottom">
-                                <a class="list-group-item list-group-item-action text-danger" href="#">
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Start Bootstrap Forms
+                                    <div class="text-xs text-muted">July 9, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Start Bootstrap Forms
+                                    <div class="text-xs text-muted">July 9, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
+                                    Introducing Start Bootstrap Forms
+                                    <div class="text-xs text-muted">July 9, 2021</div>
+                                </a>
+                                <a class="list-group-item list-group-item-action" href="#">
                                     Free Bootstrap Themes - 2021 Update
                                     <div class="text-xs text-muted">June 27, 2021</div>
                                 </a>
                                 <a class="list-group-item list-group-item-action" href="#">
-                                    Bootstrap 5 Templates and Themes Update for Start
-                                    Bootstrap
-                                    <div class="text-xs text-muted">May 21, 2021</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Is Bootstrap Relevant in 2021?
-                                    <div class="text-xs text-muted">May 21, 2021</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Introducing Angular Bootstrap Themes and Templates
-                                    <div class="text-xs text-muted">April 9, 2020</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Bootstrap 5 Templates and Themes Update for Start
-                                    Bootstrap
-                                    <div class="text-xs text-muted">May 21, 2021</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Is Bootstrap Relevant in 2021?
-                                    <div class="text-xs text-muted">May 21, 2021</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Introducing Angular Bootstrap Themes and Templates
-                                    <div class="text-xs text-muted">April 9, 2020</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action text-danger" href="#">
                                     Free Bootstrap Themes - 2021 Update
                                     <div class="text-xs text-muted">June 27, 2021</div>
                                 </a>
                                 <a class="list-group-item list-group-item-action" href="#">
-                                    Bootstrap 5 Templates and Themes Update for Start
-                                    Bootstrap
-                                    <div class="text-xs text-muted">May 21, 2021</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Is Bootstrap Relevant in 2021?
-                                    <div class="text-xs text-muted">May 21, 2021</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Introducing Angular Bootstrap Themes and Templates
-                                    <div class="text-xs text-muted">April 9, 2020</div>
-                                </a>
-                                <a class="list-group-item list-group-item-action" href="#">
-                                    Bootstrap 5 Templates and Themes Update for Start
-                                    Bootstrap
+                                    Bootstrap 5 Templates and Themes Update for Start Bootstrap
                                     <div class="text-xs text-muted">May 21, 2021</div>
                                 </a>
                                 <a class="list-group-item list-group-item-action" href="#">
@@ -346,56 +324,11 @@
                                     <div class="text-xs text-muted">April 9, 2020</div>
                                 </a>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-center p-2">
-                            <button id="up" type="button"><i class="bi bi-arrow-up-circle"></i></button>
-                            <button id="down" type="button"><i class="bi bi-arrow-down-circle"></i></button>
-                        </div>
-                    </div>
-                    <div class="card h-45">
-                        <div class="card-header bg-success">
-                            <div class="text-white fw-500 text-center">
-                                <b th:text="${value2}">Recent List</b>
+                            <div class="text-center m-2">
+                                <a href="#">
+                                    <b class="btn btn-outline-info px-5">View More</b>
+                                </a>
                             </div>
-                        </div>
-                        <div class="list-group list-group-flush small mb-0 border-bottom">
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Start Bootstrap Forms
-                                <div class="text-xs text-muted">July 9, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Start Bootstrap Forms
-                                <div class="text-xs text-muted">July 9, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Start Bootstrap Forms
-                                <div class="text-xs text-muted">July 9, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Free Bootstrap Themes - 2021 Update
-                                <div class="text-xs text-muted">June 27, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Bootstrap 5 Templates and Themes Update for Start Bootstrap
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Is Bootstrap Relevant in 2021?
-                                <div class="text-xs text-muted">May 21, 2021</div>
-                            </a>
-                            <a class="list-group-item list-group-item-action" href="#">
-                                Introducing Angular Bootstrap Themes and Templates
-                                <div class="text-xs text-muted">April 9, 2020</div>
-                            </a>
-                        </div>
-                        <div class="text-center m-2">
-                            <a href="#">
-                                <b class="btn btn-outline-info px-5">View More</b>
-                            </a>
                         </div>
                     </div>
                 </div>

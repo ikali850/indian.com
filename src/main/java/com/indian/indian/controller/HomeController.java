@@ -1,14 +1,29 @@
 package com.indian.indian.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.indian.indian.entity.BlogPost;
+import com.indian.indian.repository.BlogRepository;
+
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
+
+  @Autowired
+  private BlogRepository blogRepository;
 
   @GetMapping
   public ModelAndView homepage() {
@@ -23,6 +38,8 @@ public class HomeController {
   @GetMapping("/results")
   public ModelAndView resultPage() {
     ModelAndView mv = new ModelAndView("list");
+    List<BlogPost> resultList = this.blogRepository.findByCategory("job");
+    mv.addObject("listData", resultList);
     mv.addObject("title", "Results");
     mv.addObject("value2", "Recent Exams");
     return mv;
@@ -46,6 +63,18 @@ public class HomeController {
   @GetMapping("/signin")
   public ModelAndView signInPage() {
     return new ModelAndView("admin-signin.html", HttpStatus.OK);
+  }
+
+  @GetMapping("/cate/{cate}")
+  public ResponseEntity<List<BlogPost>> getBycate(@PathVariable("cate") String cate) {
+    // List<String> catelist = new ArrayList<>();
+    // catelist.add(cate);
+    // List<BlogPost> posts = new ArrayList<>();
+
+    List<BlogPost> list = this.blogRepository.findByCategory(cate);
+    System.out.println("list size :" + list.size());
+    return new ResponseEntity<List<BlogPost>>(list, HttpStatus.OK);
+    // return null;
   }
 
 }

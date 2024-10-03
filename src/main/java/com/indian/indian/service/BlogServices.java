@@ -1,6 +1,8 @@
 package com.indian.indian.service;
 
 import com.indian.indian.entity.BlogPost;
+import com.indian.indian.entity.BlogPostRequestDTO;
+import com.indian.indian.entity.User;
 import com.indian.indian.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -16,7 +18,18 @@ public class BlogServices {
     private BlogRepository blogRepository;
 
     // Create or update a blog post
-    public BlogPost saveBlogPost(BlogPost blogPost) {
+    public BlogPost saveBlogPost(BlogPostRequestDTO blogPostDto, User user) {
+        // create blogPost Entity Object
+        BlogPost blogPost = new BlogPost();
+        blogPost.setUser(user);
+        blogPost.setId(blogPostDto.getId());
+        blogPost.setCreatedAt(blogPostDto.getDate());
+        blogPost.setCategories(blogPostDto.getCategories().toString());
+        blogPost.setTitle(blogPostDto.getTitle());
+        blogPost.setFullTitle(blogPostDto.getFullTitle());
+        blogPost.setContent(blogPostDto.getContent());
+        blogPost.setSlug(blogPostDto.getSlug());
+        System.out.println("blogpost Data :" + blogPost);
         return blogRepository.save(blogPost);
     }
 
@@ -28,6 +41,18 @@ public class BlogServices {
     // Find a blog post by ID
     public Optional<BlogPost> getBlogPostById(Long id) {
         return blogRepository.findById(id);
+    }
+
+    // Find a blog post by ID
+    public void toggleVisibility(Long id) {
+        BlogPost blogPost = getBlogPostById(id).get();
+        System.out.println("Before changing: " + blogPost.getStatus());
+        if (blogPost.getStatus().equalsIgnoreCase("visible")) {
+            blogPost.setStatus("hidden");
+        } else if (blogPost.getStatus().equalsIgnoreCase("hidden")) {
+            blogPost.setStatus("visible");
+        }
+        blogRepository.save(blogPost);
     }
 
     // Find a blog post by slug
