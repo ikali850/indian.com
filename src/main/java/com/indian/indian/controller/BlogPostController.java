@@ -48,35 +48,32 @@ public class BlogPostController {
     }
 
     @PostMapping("/admin/blog/post")
-    public ModelAndView postMethodName(@ModelAttribute BlogPostRequestDTO blogPostDto, HttpSession session) {
-        // get current user
+    public ModelAndView savePost(@ModelAttribute BlogPostRequestDTO blogPostDto, HttpSession session,
+            RedirectAttributes redirectAttributes) {
+        // Get current user
         User currentUser = (User) session.getAttribute("user");
-        System.out.println("req DTO :" + blogPostDto);
         try {
             this.blogServices.saveBlogPost(blogPostDto, currentUser);
+            redirectAttributes.addFlashAttribute("success", "Post Created.."); // Success message
         } catch (Exception e) {
-            ModelAndView mv = new ModelAndView(new RedirectView("/admin/manage-posts"));
-            mv.addObject("error", "Something went Wrong.. Please Try Again!");
-            return mv;
+            redirectAttributes.addFlashAttribute("error", "Something went wrong.. Please try again!"); // Error message
         }
-        ModelAndView mv = new ModelAndView(new RedirectView("/admin/manage-posts"));
-        mv.addObject("success", "Post Created..");
-        return mv;
+        return new ModelAndView("redirect:/admin/manage-posts"); // Redirect to manage-posts
     }
 
     @PostMapping("/admin/edit-post")
-    public ModelAndView updatePost(@ModelAttribute BlogPostRequestDTO blogPostDto, HttpSession session) {
+    public ModelAndView updatePost(@ModelAttribute BlogPostRequestDTO blogPostDto, HttpSession session,
+            RedirectAttributes redirectAttributes) {
         User user = (User) session.getAttribute("user");
+
         try {
             this.blogServices.saveBlogPost(blogPostDto, user);
+            redirectAttributes.addFlashAttribute("success", "Post Updated.."); // Success message
         } catch (Exception e) {
-            ModelAndView mv = new ModelAndView(new RedirectView("/admin/manage-posts"));
-            mv.addObject("error", "Something went Wrong.. Please Try Again!");
-            return mv;
+            redirectAttributes.addFlashAttribute("error", "Something went wrong.. Please try again!"); // Error message
         }
-        ModelAndView mv = new ModelAndView(new RedirectView("/admin/manage-posts"));
-        mv.addObject("success", "Post Updated..");
-        return mv;
+
+        return new ModelAndView("redirect:/admin/manage-posts"); // Redirect to manage-posts
     }
 
     @GetMapping("/admin/post/{id}")

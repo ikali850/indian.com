@@ -13,8 +13,19 @@ $(document).ready(function () {
     previewModal.show();
   });
 
-  //modal for add new post
-  // $(".");
+  $("#update-previewButton").on("click", function () {
+    // Get the content from the input field with id 'contentData'
+    var content = $("#update-contentData").val();
+
+    // Set the content inside the modal body with id 'previewContainer'
+    $("#previewContainer").html(content);
+
+    // Show the modal
+    var previewModal = new bootstrap.Modal(
+      document.getElementById("previewModal")
+    );
+    previewModal.show();
+  });
 
   //   method to update post
   $(".editBtn").on("click", function () {
@@ -35,13 +46,13 @@ $(document).ready(function () {
         $("#update-date").val(data.date);
         $("#update-contentData").val(data.content);
 
-        // Check the categories and set the checkboxes accordingly
-        data.categories.forEach(function (category) {
-          $('input[name="categories"][value="' + category + '"]').prop(
-            "checked",
-            true
-          );
-        });
+        // // Check the categories and set the checkboxes accordingly
+        // data.categories.forEach(function (category) {
+        //   $('input[name="categories"][value="' + category + '"]').prop(
+        //     "checked",
+        //     true
+        //   );
+        // });
         document.getElementById("loader").style.visibility = "hidden";
       },
       error: function (err) {

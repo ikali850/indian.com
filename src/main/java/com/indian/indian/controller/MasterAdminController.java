@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.indian.indian.Utils.PasswordUtils;
@@ -20,54 +21,22 @@ public class MasterAdminController {
     private UserService userService;
 
     @PostMapping
-    public ModelAndView createUser(@ModelAttribute User user) {
-        // check if user exist by email address
-        if (this.userService.getUserByEmail(user.getEmail()).isPresent()) {
-            ModelAndView mv = new ModelAndView("/master-admin/manage-users");
-            mv.addObject("emailExist", true);
-            return mv;
+    public ModelAndView createUser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
+        String result = this.userService.registerUser(user);
+        ModelAndView mv = new ModelAndView();
+
+        if (result.equals("created")) {
+            redirectAttributes.addFlashAttribute("success", "Account created...");
+        } else if (result.equals("emailExist")) {
+            redirectAttributes.addFlashAttribute("error", "Email Already Exist!");
+        } else if (result.equals("mobileExist")) {
+            redirectAttributes.addFlashAttribute("error", "Mobile number Already Exist!");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Something went wrong!");
         }
-        // check if user exist by mobile number
-        if (this.userService.getUserByMobile(user.getMobile()).isPresent()) {
-            ModelAndView mv = new ModelAndView("/master-admin/manage-users");
-            mv.addObject("mobileExist", true);
-            return mv;
-        }
-        String plainPass = user.getPassword();
-        String hashedpw = PasswordUtils.generatePassword(plainPass);
-        user.setPassword(hashedpw);
-        try {
-            User createdUser = userService.registerUser(user);
-        } catch (Exception e) {
-            ModelAndView mv = new ModelAndView("/master-admin/manage-users");
-            mv.addObject("serverError", true);
-            return mv;
-        }
-        ModelAndView mv = new ModelAndView("/master-admin/manage-users");
-        mv.addObject("isSuccess", true);
+
+        mv.setViewName("redirect:/admin/manage-users"); // Redirect to the manage-users page
         return mv;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        return userService.getUserById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
-        String plainPass = userDetails.getPassword();
-        String hashedpw = PasswordUtils.generatePassword(plainPass);
-        userDetails.setPassword(hashedpw);
-        User updatedUser = userService.updateUser(id, userDetails);
-        return ResponseEntity.ok(updatedUser);
     }
 
     @GetMapping("/delete/{id}")
@@ -77,20 +46,21 @@ public class MasterAdminController {
     }
 
     @GetMapping("/block/{id}")
-    public ModelAndView blockUser(@PathVariable Long id) {
-        User user = userService.getUserById(id).get();
-        System.out.println(user);
+    public ModelAndView blockUser(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        User user = userService.getUserById(id).orElseThrow(() -> new RuntimeException("User not found"));
         user.setIsBlocked("unblock");
-        userService.registerUser(user);
-        return new ModelAndView(new RedirectView("/admin/manage-users"));
+        userService.updateUser(user);
+        redirectAttributes.addFlashAttribute("success", "User blocked successfully.");
+        return new ModelAndView("redirect:/admin/manage-users");
     }
 
     @GetMapping("/unblock/{id}")
-    public ModelAndView unBlockUser(@PathVariable Long id) {
-        User user = userService.getUserById(id).get();
-        System.out.println(user);
+    public ModelAndView unBlockUser(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        User user = userService.getUserById(id).orElseThrow(() -> new RuntimeException("User not found"));
         user.setIsBlocked("block");
-        userService.registerUser(user);
-        return new ModelAndView(new RedirectView("/admin/manage-users"));
+        userService.updateUser(user);
+        redirectAttributes.addFlashAttribute("success", "User unblocked successfully."); // Add success message
+        return new ModelAndView("redirect:/admin/manage-users"); // Redirect to manage-users
     }
+
 }

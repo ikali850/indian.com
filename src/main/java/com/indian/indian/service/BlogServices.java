@@ -29,7 +29,6 @@ public class BlogServices {
         blogPost.setFullTitle(blogPostDto.getFullTitle());
         blogPost.setContent(blogPostDto.getContent());
         blogPost.setSlug(blogPostDto.getSlug());
-        System.out.println("blogpost Data :" + blogPost);
         return blogRepository.save(blogPost);
     }
 

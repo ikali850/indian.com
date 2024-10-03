@@ -65,16 +65,4 @@ public class HomeController {
     return new ModelAndView("admin-signin.html", HttpStatus.OK);
   }
 
-  @GetMapping("/cate/{cate}")
-  public ResponseEntity<List<BlogPost>> getBycate(@PathVariable("cate") String cate) {
-    // List<String> catelist = new ArrayList<>();
-    // catelist.add(cate);
-    // List<BlogPost> posts = new ArrayList<>();
-
-    List<BlogPost> list = this.blogRepository.findByCategory(cate);
-    System.out.println("list size :" + list.size());
-    return new ResponseEntity<List<BlogPost>>(list, HttpStatus.OK);
-    // return null;
-  }
-
 }

@@ -2,7 +2,9 @@ package com.indian.indian.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.indian.indian.Utils.PasswordUtils;
 import com.indian.indian.entity.User;
 import com.indian.indian.repository.UserRepository;
 
@@ -15,8 +17,27 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User registerUser(User user) {
-        return userRepository.save(user);
+    public String registerUser(User user) {
+        // check if user exist by email address
+        if (getUserByEmail(user.getEmail()).isPresent()) {
+            return "emailExist";
+        } else if (getUserByMobile(user.getMobile()).isPresent()) {
+            return "mobileExist";
+        } else {
+            String plainPass = user.getPassword();
+            String hashedpw = PasswordUtils.generatePassword(plainPass);
+            user.setPassword(hashedpw);
+            try {
+                userRepository.save(user);
+                return "created";
+            } catch (Exception e) {
+                return "error";
+            }
+        }
+    }
+
+    public User updateUser(User user) {
+        return this.userRepository.save(user);
     }
 
     public List<User> getAllUsers() {
