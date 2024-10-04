@@ -7,6 +7,7 @@
 </head>
 
 <body class="bg-body-tertiary">
+    <!-- header for Homepage -->
     <div th:fragment="headerFragment(title)">
         <!-- Header starts -->
         <div class="container" style="width: fit-content;">
@@ -61,6 +62,73 @@
             </div>
             <div class="mobile-bottom-nav__item">
                 <a href="#results" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">book</i>
+                    Result
+                </a>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <a href="#service" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">diversity_3</i>
+                    Service
+                </a>
+            </div>
+        </nav>
+    </div>
+    <!-- header for other page -->
+    <div th:fragment="headerFragment2">
+        <!-- Header starts -->
+        <div class="container" style="width: fit-content;">
+            <h1 class="display-3 fw-bold mb-1 text-dark text-center">
+                <span class="writing-effect text-info">INDIAN.COM</span>
+            </h1>
+        </div>
+        <div class="nav-scroller bg-body shadow-sm">
+            <nav class="nav align-items-center" aria-label="Secondary navigation">
+                <a class="btn-outline-info nav-link" aria-current="page" href="/">Home</a>
+                <a class="btn-outline-info nav-link">
+                    Friends
+                    <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
+                </a>
+                <a class="btn-outline-info nav-link" href="/results">Results</a>
+                <a class="btn-outline-info nav-link" href="#">Suggestions</a>
+                <a class="btn-outline-info nav-link" href="/not-found">Error</a>
+                <a class="btn-outline-info nav-link" href="#">Link</a>
+                <a class="btn-outline-info nav-link" href="/contact-us">Contact Us</a>
+                <a class="btn-outline-info nav-link" href="/about-us">About Us</a>
+                <a class="btn-outline-info nav-link" href="/signin">Sign-In</a>
+                <!-- New links added here -->
+                <a class="btn-outline-info nav-link" href="#jobs"><i class="bi bi-card-checklist"></i> Jobs</a>
+                <a class="btn-outline-info nav-link" href="#exams"><i class="bi bi-person-vcard"></i> Exams</a>
+                <a class="btn-outline-info nav-link" href="/results">Results</a>
+                <a class="btn-outline-info nav-link" href="#service">Service</a>
+                <a class="btn-outline-info nav-link" href="#support">Support</a>
+                <a class="btn-outline-info nav-link" href="#blog">Blog</a>
+                <a class="btn-outline-info nav-link" href="#tools">Tools</a>
+                <a class="btn-outline-info nav-link" href="#base">Base</a>
+                <a class="btn-outline-info nav-link" href="#custom">Custom</a>
+                <a class="btn-outline-info nav-link" href="#more">More</a>
+                <a class="btn-outline-info nav-link" href="#logo">Logo</a>
+                <a class="btn-outline-info nav-link" href="#partners">Partners</a>
+                <a class="btn-outline-info nav-link" href="#people">People</a>
+                <a class="btn-outline-info nav-link" href="#work">Work</a>
+            </nav>
+        </div>
+        <!-- Direct section for mobile devices -->
+        <nav class="mobile-bottom-nav d-sm-none fixed-bottom rounded-3">
+            <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+                <a href="#" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <a href="#jobs" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">work</i>
+                    Jobs
+                </a>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <a href="/results" class="mobile-bottom-nav__item-content">
                     <i class="material-icons">book</i>
                     Result
                 </a>
