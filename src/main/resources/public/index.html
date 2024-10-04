@@ -22,6 +22,9 @@
 </head>
 
 <body class="bg-body-tertiary">
+    <!-- Include the header fragment -->
+    <div th:replace="header :: headerFragment(title='Home')"></div>
+    <!-- End Header -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="bootstrap" viewBox="0 0 118 94">
             <title>Bootstrap</title>
@@ -100,44 +103,6 @@
                 d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
         </symbol>
     </svg>
-    <!-- header starts -->
-    <div class="container" style="width: fit-content;">
-        <h1 class="display-3 fw-bold mb-1 text-dark text-center">
-            <span class="writing-effect text-info">INDIAN.COM</span>
-        </h1>
-    </div>
-    <div class="nav-scroller bg-body shadow-sm">
-        <nav class="nav align-items-center" aria-label="Secondary navigation">
-            <a class="btn-outline-info nav-link" aria-current="page" href="/">Home</a>
-            <a class="btn-outline-info nav-link">
-                Friends
-                <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
-            </a>
-            <a class="btn-outline-info nav-link" href="/results">Result</a>
-            <a class="btn-outline-info nav-link" href="#">Suggestions</a>
-            <a class="btn-outline-info nav-link" href="/not-found">Error</a>
-            <a class="btn-outline-info nav-link" href="#">Link</a>
-            <a class="btn-outline-info nav-link" href="/contact-us">Contact Us</a>
-            <a class="btn-outline-info nav-link" href="/about-us">About Us</a>
-            <a class="btn-outline-info nav-link" href="/signin">Sign-In</a>
-            <!-- New links added here -->
-            <a class="btn-outline-info nav-link" href="#jobs"><i class="bi bi-card-checklist"></i> Jobs</a>
-            <a class="btn-outline-info nav-link" href="#exams"><i class="bi bi-person-vcard"></i> Exams</a>
-            <a class="btn-outline-info nav-link" href="/results">Results</a>
-            <a class="btn-outline-info nav-link" href="#service">Service</a>
-            <a class="btn-outline-info nav-link" href="#support">Support</a>
-            <a class="btn-outline-info nav-link" href="#blog">Blog</a>
-            <a class="btn-outline-info nav-link" href="#tools">Tools</a>
-            <a class="btn-outline-info nav-link" href="#base">Base</a>
-            <a class="btn-outline-info nav-link" href="#custom">Custom</a>
-            <a class="btn-outline-info nav-link" href="#more">More</a>
-            <a class="btn-outline-info nav-link" href="#logo">Logo</a>
-            <a class="btn-outline-info nav-link" href="#partners">Partners</a>
-            <a class="btn-outline-info nav-link" href="#people">People</a>
-            <a class="btn-outline-info nav-link" href="#work">Work</a>
-        </nav>
-    </div>
-    <!-- End Header -->
     <!-- hero section starts here -->
     <section class="bsb-hero-1 px-3 bsb-overlay bsb-hover-pull">
         <div class="row justify-content-md-center mt-1">
@@ -156,39 +121,9 @@
         </div>
     </section>
     <!-- hero section ends here -->
-    <!-- direct section for mobile devices -->
-    <nav class="mobile-bottom-nav d-sm-none fixed-bottom mb-1 rounded-3">
-        <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-            <a href="#" class="mobile-bottom-nav__item-content">
-                <i class="material-icons">home</i>
-                Home
-            </a>
-        </div>
-        <div class="mobile-bottom-nav__item">
-            <a href="#jobs" class="mobile-bottom-nav__item-content">
-                <i class="material-icons">work</i>
-                Jobs
-            </a>
-        </div>
-        <div class="mobile-bottom-nav__item">
-            <a href="#results" class="mobile-bottom-nav__item-content">
-                <i class="material-icons">book</i>
-                Result
-            </a>
-        </div>
-
-
-        <div class="mobile-bottom-nav__item">
-            <a href="#service" class="mobile-bottom-nav__item-content">
-                <i class="material-icons">diversity_3</i>
-                Service
-            </a>
-        </div>
-    </nav>
-    <!-- direct section for  mobile devicsx ends here -->
     <hr />
     <!-- Breaking news section -->
-    <div class="container-fluid">
+    <div class="card-body">
         <div class="row mb-2">
             <div class="col-12 py-2 bg-dark">
                 <div class="row">
@@ -283,9 +218,10 @@
             </div>
         </div>
     </div>
+
     <!-- recent section starts here -->
     <section id="recents">
-        <div class="container">
+        <div class="mx-md-3 mx-1">
             <div class="row g-2 g-xxl-5">
                 <div class="col-lg-4" id="jobs">
                     <div class="card h-100">
@@ -458,10 +394,10 @@
             </div>
         </div>
     </section>
-    <!-- recent section ends here -->
+    <br>
     <!-- addmission & news section -->
     <section id="news-addmission-section">
-        <div class="container my-1">
+        <div class="mx-md-3 mx-1">
             <div class="row g-2 g-xxl-5">
                 <div class="col-lg-4" id="other-form">
                     <div class="card h-60">
@@ -577,8 +513,8 @@
                                 <div class="text-xs text-muted">April 9, 2020</div>
                             </a>
                         </div>
-                        <div class="text-center my-2">
-                            <a href="#">
+                        <div class="card-footer bg-light align-items-center text-center">
+                            <a href="list.html">
                                 <b class="btn btn-outline-info px-5">View More</b>
                             </a>
                         </div>
@@ -621,8 +557,8 @@
                                 <div class="text-xs text-muted">April 9, 2020</div>
                             </a>
                         </div>
-                        <div class="text-center my-2">
-                            <a href="#">
+                        <div class="card-footer bg-light align-items-center text-center">
+                            <a href="list.html">
                                 <b class="btn btn-outline-info px-5">View More</b>
                             </a>
                         </div>
@@ -633,7 +569,7 @@
     </section>
     <!-- addmission & news section -->
     <!-- service section start -->
-    <div id="service" class="container">
+    <div id="service" class="mx-md-3 mx-1">
         <div class="card mt-1">
             <div class="card-header text-white bg-success">
                 <b>Services</b>
@@ -735,7 +671,7 @@
 
     <!-- service section ends  -->
     <!-- faq section -->
-    <div class="container py-1">
+    <div class="mx-md-3 mx-1">
         <div id="app-tools" class="card mt-1 ">
             <div class="card-header text-white bg-success">
                 <b>FAQs</b>
@@ -847,112 +783,15 @@
     <!-- faq section ends -->
     <hr />
     <!-- Footer -->
-    <footer class="bg-body-tertiary text-center">
-        <!-- Grid container -->
-        <div class="container p-4">
-            <!-- Section: Social media -->
-            <div class="container p-4">
-                <!-- Section: Social media -->
-                <section class="mb-4">
-                    <div class="d-flex justify-content-center">
-                        <!-- Facebook -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
-                            <img class="rounded" src="assets/img/facebook-3-logo-svgrepo-com.png" height="30px"
-                                alt="Facebook" />
-                        </a>
-                        <!-- Google -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
-                            <img class="rounded" src="assets/img/google-color-svgrepo-com.png" height="30px"
-                                alt="Google" />
-                        </a>
-                        <!-- Instagram -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
-                            <img class="rounded" src="assets/img/instagram-2-1-logo-svgrepo-com.png" height="30px"
-                                alt="Instagram" />
-                        </a>
-                        <!-- Linkedin -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
-                            <img class="rounded" src="assets/img/linkedin-icon-2-logo-svgrepo-com.png" height="30px"
-                                alt="LinkedIn" />
-                        </a>
-                        <!-- Github -->
-                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
-                            <img class="rounded" src="assets/img/github-color-svgrepo-com.png" height="30px"
-                                alt="GitHub" />
-                        </a>
-                    </div>
-                </section>
-                <!-- Section: Social media -->
-                <!-- Section: Form -->
-                <section>
-                    <form action>
-                        <!--Grid row-->
-                        <div class="row d-flex justify-content-center">
-                            <!--Grid column-->
-                            <div class="col-auto">
-                                <p class="pt-2">
-                                    <strong>Sign up for our newsletter</strong>
-                                </p>
-                            </div>
-                            <!--Grid column-->
-                            <div class="col-md-5 col-12">
-                                <!-- Email input -->
-                                <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="email" id="form5Example24" class="form-control"
-                                        placeholder="Enter Email" required />
-                                </div>
-                            </div>
-                            <!--Grid column-->
-                            <div class="col-auto">
-                                <!-- Submit button -->
-                                <button data-mdb-ripple-init type="submit" class="btn btn-primary mb-4">
-                                    Subscribe
-                                </button>
-                            </div>
-                            <!--Grid column-->
-                        </div>
-                        <!--Grid row-->
-                    </form>
-                </section>
-                <!-- Section: Form -->
-            </div>
-        </div>
-        <!-- Grid container -->
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05)">
-            © 2020 Copyright:
-            <a class="text-reset fw-bold" href="#">myweb.com</a>
-        </div>
-        <!-- Copyright -->
+    <footer class="text-center" style="background: chartreuse;">
+        <div th:replace="header :: footerFragment"></div>
     </footer>
     <!-- Footer -->
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/jquery.easy-ticker.js"></script>
     <script>
-        $(document).ready(function () {
-            var lastScrollTop = 0;
-            var header = $("#header");
-
-            $(window).scroll(function () {
-                var currentScroll = $(this).scrollTop();
-
-                if (currentScroll > lastScrollTop) {
-                    // Scrolling down
-                    header.removeClass("d-block").addClass("d-none");
-                } else {
-                    // Scrolling up
-                    header.removeClass("d-none").addClass("d-block");
-                }
-
-                lastScrollTop = currentScroll;
-            });
-
-
-        });
         // function to auto scroll news
         $(document).ready(function () {
             $("#news-list").easyTicker({
@@ -960,7 +799,7 @@
                 easing: "swing",
                 speed: "slow",
                 interval: 1000,
-                height: "500px",
+                height: "455px",
                 visible: 0,
                 mousePause: true,
                 controls: {

@@ -11,7 +11,7 @@ body a {
 
 #service a:hover {
     border-radius: 5px;
-    background-color: greenyellow;
+    background-color: lightgrey;
 }
 
 /*--------------------------------------------------------------
@@ -46,6 +46,9 @@ body a {
     text-align: center;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+}
+.nav-scroller .nav a:hover {
+    background-color:aqua;
 }
 
 /*title 3d Design css*/
@@ -90,16 +93,11 @@ body a {
         }
     }
 
- .container-fluid{
-    padding-right: 0;
-    padding-left: 0;
-      
-      }
 .container{
     padding-right: 0;
     padding-left: 0;
-        
-        }
+  
+  }
 /*bottom navbar for mobile devices*/
 
 .mobile-bottom-nav {

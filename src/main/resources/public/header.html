@@ -1,0 +1,148 @@
+<!-- src/main/resources/templates/fragments/header.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body class="bg-body-tertiary">
+    <div th:fragment="headerFragment(title)">
+        <!-- Header starts -->
+        <div class="container" style="width: fit-content;">
+            <h1 class="display-3 fw-bold mb-1 text-dark text-center">
+                <span class="writing-effect text-info">INDIAN.COM</span>
+            </h1>
+        </div>
+        <div class="nav-scroller bg-body shadow-sm">
+            <nav class="nav align-items-center" aria-label="Secondary navigation">
+                <a class="btn-outline-info nav-link" aria-current="page" href="/">Home</a>
+                <a class="btn-outline-info nav-link">
+                    Friends
+                    <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
+                </a>
+                <a class="btn-outline-info nav-link" href="/results">Results</a>
+                <a class="btn-outline-info nav-link" href="#">Suggestions</a>
+                <a class="btn-outline-info nav-link" href="/not-found">Error</a>
+                <a class="btn-outline-info nav-link" href="#">Link</a>
+                <a class="btn-outline-info nav-link" href="/contact-us">Contact Us</a>
+                <a class="btn-outline-info nav-link" href="/about-us">About Us</a>
+                <a class="btn-outline-info nav-link" href="/signin">Sign-In</a>
+                <!-- New links added here -->
+                <a class="btn-outline-info nav-link" href="#jobs"><i class="bi bi-card-checklist"></i> Jobs</a>
+                <a class="btn-outline-info nav-link" href="#exams"><i class="bi bi-person-vcard"></i> Exams</a>
+                <a class="btn-outline-info nav-link" href="/results">Results</a>
+                <a class="btn-outline-info nav-link" href="#service">Service</a>
+                <a class="btn-outline-info nav-link" href="#support">Support</a>
+                <a class="btn-outline-info nav-link" href="#blog">Blog</a>
+                <a class="btn-outline-info nav-link" href="#tools">Tools</a>
+                <a class="btn-outline-info nav-link" href="#base">Base</a>
+                <a class="btn-outline-info nav-link" href="#custom">Custom</a>
+                <a class="btn-outline-info nav-link" href="#more">More</a>
+                <a class="btn-outline-info nav-link" href="#logo">Logo</a>
+                <a class="btn-outline-info nav-link" href="#partners">Partners</a>
+                <a class="btn-outline-info nav-link" href="#people">People</a>
+                <a class="btn-outline-info nav-link" href="#work">Work</a>
+            </nav>
+        </div>
+        <!-- Direct section for mobile devices -->
+        <nav class="mobile-bottom-nav d-sm-none fixed-bottom rounded-3">
+            <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+                <a href="#" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <a href="#jobs" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">work</i>
+                    Jobs
+                </a>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <a href="#results" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">book</i>
+                    Result
+                </a>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <a href="#service" class="mobile-bottom-nav__item-content">
+                    <i class="material-icons">diversity_3</i>
+                    Service
+                </a>
+            </div>
+        </nav>
+    </div>
+    <div th:fragment="footerFragment">
+        <div class="container p-4">
+            <!-- Section: Social media -->
+            <div class="container p-4">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <div class="d-flex justify-content-center">
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                            <img class="rounded" src="assets/img/facebook-3-logo-svgrepo-com.png" height="30px"
+                                alt="Facebook" />
+                        </a>
+                        <!-- Google -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                            <img class="rounded" src="assets/img/google-color-svgrepo-com.png" height="30px"
+                                alt="Google" />
+                        </a>
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                            <img class="rounded" src="assets/img/instagram-2-1-logo-svgrepo-com.png" height="30px"
+                                alt="Instagram" />
+                        </a>
+                        <!-- Linkedin -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                            <img class="rounded" src="assets/img/linkedin-icon-2-logo-svgrepo-com.png" height="30px"
+                                alt="LinkedIn" />
+                        </a>
+                        <!-- Github -->
+                        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+                            <img class="rounded" src="assets/img/github-color-svgrepo-com.png" height="30px"
+                                alt="GitHub" />
+                        </a>
+                    </div>
+                </section>
+                <!-- Section: Social media -->
+                <!-- Section: Form -->
+                <section>
+                    <form action>
+                        <!--Grid row-->
+                        <div class="row d-flex justify-content-center">
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <p class="pt-2">
+                                    <strong>Sign up for our newsletter</strong>
+                                </p>
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-md-5 col-12">
+                                <!-- Email input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="email" id="form5Example24" class="form-control"
+                                        placeholder="Enter Email" required />
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <!-- Submit button -->
+                                <button data-mdb-ripple-init type="submit" class="btn btn-primary mb-4">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                    </form>
+                </section>
+                <!-- Section: Form -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
